@@ -2,7 +2,7 @@
 
 # 启动方法 #
 
-下载release包，解压后
+下载[demo](http://t.cn/EAPD9c3)包，解压后
 ```
 //修改配置文件
 vim ./config/application.properties

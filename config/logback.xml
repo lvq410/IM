@@ -1,0 +1,27 @@
+<configuration>
+    <appender name="StdOut" class="ch.qos.logback.core.ConsoleAppender"> 
+        <encoder>
+            <pattern>%d{yy-MM-dd HH:mm:ss} [%thread] %level %logger %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="File" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/im.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/im.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>3GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yy-MM-dd HH:mm:ss} [%thread] %level %logger %msg%n</pattern>
+        </encoder>
+    </appender>
+    
+    <root level="error">
+        <appender-ref ref="StdOut"/>
+        <appender-ref ref="File"/>
+    </root>
+    <logger name="org.apache.commons.configuration" level="error"/>
+    <logger name="com.lvt4j.im" level="info"/>
+    <logger name="com.lvt4j.im.Main" level="info"/>
+    <logger name="org.springframework.boot.SpringApplication" level="info"/>
+</configuration>
